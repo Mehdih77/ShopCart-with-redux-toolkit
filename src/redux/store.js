@@ -7,6 +7,6 @@ const store = configureStore({
         shop: shopSlice
     }
 })
-// store.dispatch(getTotal());
+store.dispatch(getTotal());
 
 export default store;

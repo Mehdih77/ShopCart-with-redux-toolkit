@@ -1,13 +1,32 @@
-body {
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none!important;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Navbar */
+.shop-navbar {
+  background-color: blueviolet;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 15px 30px;
+  color: #fff;
+  min-height: 70px;
+}
+.shop-navbar h1 {
+  color: #fff;
+}
+.shop-basket-icon {
+  color: #fff;
+  font-size: 25px;
+  cursor: pointer;
+}
+.shop-basket-icon:hover {
+  color: rgb(20, 216, 46);
+}
+.shop-basket-icon span {
+  padding-left: 10px;
 }
