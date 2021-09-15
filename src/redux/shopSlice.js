@@ -49,7 +49,7 @@ const shopSlice = createSlice({
                 }
             );
             state.cartTotalQty = quantity;
-            state.cartTotalPrice = total;
+            state.cartTotalPrice = total.toFixed(2);
         }
     },
     extraReducers: {
