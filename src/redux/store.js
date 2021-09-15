@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import shopSlice, { getTotal } from './shopSlice';
+import shopSlice from './shopSlice';
 
 const store = configureStore({
     reducer: {
@@ -7,6 +7,5 @@ const store = configureStore({
     }
 })
 
-store.dispatch(getTotal());
 
 export default store;

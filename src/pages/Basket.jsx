@@ -1,6 +1,6 @@
 import {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {addShopItem, getTotal, removeShopItem} from "../redux/shopSlice";
+import {addShopItem, getTotal, removeShopItem, clearAll} from "../redux/shopSlice";
 
 export default function Basket() {
 
@@ -8,26 +8,31 @@ export default function Basket() {
     const getCurrentShopItems = useSelector(state => state.shop.currentShopItems);
     const totalPrice = useSelector(state => state.shop.cartTotalPrice);
 
-    console.log(getCurrentShopItems);
-
     useEffect(() => {
         dispatch(getTotal())
     }, [getCurrentShopItems, dispatch])
 
+    // add item To shop basket 1 by 1
     const addToShop = (produc) => {
         dispatch(addShopItem(produc))
     };
 
+    // remove items from shop basket 1 by 1
     const removeFromShop = (produc) => {
         dispatch(removeShopItem(produc))
     }
 
+    // clear all items from shop basket
+    const clearAllItemsFromBasket = () => {
+        dispatch(clearAll());
+    }
 
     const basketItems = getCurrentShopItems && getCurrentShopItems.map(item => (
         <div className="card mb-3">
                     <div className="row g-0">
                         <div className="col-md-4">
-                            <img style={{width: "130px"}} src={item.image} className="img-fluid rounded-start" alt="product basket shop"/></div>
+                            <img style={{width: "130px"}} src={item.image} className="img-fluid rounded-start" alt="product basket shop"/>
+                        </div>
                         <div className="col-md-8">
                             <div className="card-body">
                                 <h5 className="card-title">{item.title}</h5>
@@ -37,7 +42,7 @@ export default function Basket() {
                                 <button onClick={() => removeFromShop(item)}  className="btn btn-danger">-</button>
                                 </p>
                                 <p className="card-text">
-                                    <small className="text-muted">${item.price}</small>
+                                    <strong className="text-muted">${item.price}</strong>
                                 </p>
                             </div>
                         </div>
@@ -48,10 +53,11 @@ export default function Basket() {
     return (
         <section className='container my-2'>
             <div className="row col-12">
-                {getCurrentShopItems.length > 0 ? basketItems : <p>Your basket is empty</p>}
+                {getCurrentShopItems.length > 0 ? basketItems : <h3>Your basket is empty</h3>}
+                <button className="btn btn-danger my-3" onClick={clearAllItemsFromBasket}>Clear All</button>
             </div>
             <div className="row col-12 text-center">
-                <p>Total Price: $ {totalPrice}</p>
+                <h2>Total Price: $ {totalPrice}</h2>
                 <button className='btn btn-primary'>Check Out</button>
             </div>
         </section>
