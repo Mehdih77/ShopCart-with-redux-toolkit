@@ -49,7 +49,6 @@ export default function Basket() {
                     </div>
                 </div> 
     ))
-
     return (
         <section className='container my-2'>
             <div className="row col-12">

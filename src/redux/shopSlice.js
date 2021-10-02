@@ -78,3 +78,10 @@ export const {
 
 export default shopSlice.reducer;
 
+//! second way just for reduce totalPrice
+// getTotal(state,action) {
+//             let x = state.currentShopItems.reduce((acc,current) => 
+//             acc + current.price * current.qty ,0 );
+
+//             state.cartTotalPrice = x.toFixed(2);
+//         },

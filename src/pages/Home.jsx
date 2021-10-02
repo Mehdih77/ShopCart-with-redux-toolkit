@@ -16,7 +16,6 @@ export default function Home() {
         dispatch(addShopItem(produc))
     };
 
-
     return (
         <section className='container'>
             <div className="row m-3">
